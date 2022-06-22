@@ -1,7 +1,7 @@
 from PIL import Image
 from PIL.ExifTags import TAGS
 
-imagename = "IMG_20171018_133144.jpg"
+imagename = "img_name.jpg" #image name
 
 image = Image.open(imagename)
 
@@ -21,11 +21,11 @@ for label, value in info_dict.items():
     print(f"{label:25}: {value}")
 
 #extract EXIF data
-exifdata = image.getexif()
+exifdata = image.getexif() #this method returns image metadata
 
 #iterating all EXIF data
 for tagid in exifdata:
-    #get tag name 
+    #get tag name instead of tag ID which is unreadable
     tag =  TAGS.get(tagid, tagid)
     data = exifdata.get(tagid)
 
